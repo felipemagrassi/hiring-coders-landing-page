@@ -2,12 +2,12 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 const Form = () => {
-  const [usuario, setUsuario] = useState("");
+  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [showModal, setModal] = useState(false);
 
   function setUserInfo() {
-    localStorage.setItem("usuario", usuario);
+    localStorage.setItem("user", user);
     localStorage.setItem("email", email);
   }
 
@@ -34,7 +34,7 @@ const Form = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-purple-500 focus:outline-none"
               id="name"
               placeholder="Seu Nome"
-              onChange={(e) => setUsuario(e.target.value)}
+              onChange={(e) => setUser(e.target.value)}
             />
           </label>
         </div>
@@ -63,7 +63,7 @@ const Form = () => {
             <Modal>
               <div className="">
                 <h1> Email Enviado para {email}</h1>
-                <h2>{usuario}, Confira a caixa de spam caso não encontre!</h2>
+                <h2>{user}, Confira a caixa de spam caso não encontre!</h2>
                 <div className="buttons">
                   <button onClick={toggleModal}>Ok!</button>
                 </div>
