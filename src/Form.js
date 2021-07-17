@@ -34,6 +34,7 @@ const Form = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-red-500 focus:outline-none"
               id="name"
               placeholder="Seu Nome"
+              required
               onChange={(e) => setUser(e.target.value)}
             />
           </label>
@@ -48,13 +49,14 @@ const Form = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-red-500 focus:outline-none"
               id="email"
+              required
               placeholder="Seu Email"
             />
           </label>
         </div>
         <div className="flex justify-center">
           <button
-            onClick={toggleModal}
+            onClick={user !== "" && email !== "" ? toggleModal : null}
             className="w-full shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
           >
             Enviar
@@ -62,12 +64,17 @@ const Form = () => {
           {showModal ? (
             <Modal>
               <div className="flex justify-center items-center fixed inset-0 z-10 bg-opacity-10 bg-white">
-                <div className="max-w-lg p-4 rounded-3xl bg-red-300">
-                  <h1> Email Enviado para {email}</h1>
-                  <h2>{user}, Confira a caixa de spam caso não encontre!</h2>
-                  <div className="flex justify-center items-center my-3">
+                <div className="max-w-lg p-4 rounded-3xl bg-black">
+                  <h1 className="text-lg	 text-center text-white">
+                    {" "}
+                    Email enviado para {email}
+                  </h1>
+                  <h2 className="text-center text-white">
+                    {user}, Confira a caixa de spam caso não encontre!
+                  </h2>
+                  <div className="flex justify-center items-center my-2">
                     <button
-                      className="py-1 px-6 text-white text-lg rounded border-gray-200 my-0 mx-auto cursor-pointer inline-block bg-red-400"
+                      className="py-1 px-6 text-white text-lg rounded border-gray-200 my-0 mx-auto cursor-pointer inline-block bg-red-500"
                       onClick={toggleModal}
                     >
                       Ok!
