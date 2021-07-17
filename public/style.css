@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .neon-text {
+    font-size: 10vh;
+    color: #fff;
+    padding: 0 3.5rem 0 3.5rem;
+    text-shadow: 0.1vw 0vw 0.25vw #fff, 0.2vw 0vw 0.25vw #fff,
+      0.4vw 0vw 0.25vw #fff, 0.1vw 0vw 0vw #f25757, 0.2vw 0vw 0vw #f25757,
+      0.4vw 0vw 0vw #f25757, 0.1vw 0vw 0.1vw #f25757, 0.2vw 0vw 0.1vw #f25757,
+      0.4vw 0vw 0.1vw #f25757, 0.1vw 0vw 2vw #f25757, 0.2vw 0vw 2vw #f25757,
+      0.4vw 0vw 2vw #f25757, 0.1vw 0vw 1vw #e50b0b, 0.2vw 0vw 1vw #e50b0b,
+      0.4vw 0vw 5vw #e50b0b, 0.1vw 0vw 5vw #e50b0b, 0.2vw 0vw 20vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b, 0.1vw 0vw 10vw #e50b0b, 0.2vw 0vw 30vw #e50b0b,
+      0.4vw 0vw 10vw #e50b0b;
+  }
+  .brick {
+    background-image: url("../assets/brick.jpg");
+    background-size: cover;
+  }
+}

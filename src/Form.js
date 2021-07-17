@@ -16,7 +16,7 @@ const Form = () => {
   }
 
   return (
-    <div className="w-full max-w-xs relative z-40">
+    <div className="w-full max-w-xs relative">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={(e) => {
@@ -31,7 +31,7 @@ const Form = () => {
           >
             Nome:
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-purple-500 focus:outline-none"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-red-500 focus:outline-none"
               id="name"
               placeholder="Seu Nome"
               onChange={(e) => setUser(e.target.value)}
@@ -46,7 +46,7 @@ const Form = () => {
             Email:
             <input
               onChange={(e) => setEmail(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-purple-500 focus:outline-none"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline focus:border-red-500 focus:outline-none"
               id="email"
               placeholder="Seu Email"
             />
@@ -55,17 +55,24 @@ const Form = () => {
         <div className="flex justify-center">
           <button
             onClick={toggleModal}
-            className="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="w-full shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
           >
             Enviar
           </button>
           {showModal ? (
             <Modal>
-              <div className="">
-                <h1> Email Enviado para {email}</h1>
-                <h2>{user}, Confira a caixa de spam caso não encontre!</h2>
-                <div className="buttons">
-                  <button onClick={toggleModal}>Ok!</button>
+              <div className="flex justify-center items-center fixed inset-0 z-10 bg-opacity-10 bg-white">
+                <div className="max-w-lg p-4 rounded-3xl bg-red-300">
+                  <h1> Email Enviado para {email}</h1>
+                  <h2>{user}, Confira a caixa de spam caso não encontre!</h2>
+                  <div className="flex justify-center items-center my-3">
+                    <button
+                      className="py-1 px-6 text-white text-lg rounded border-gray-200 my-0 mx-auto cursor-pointer inline-block bg-red-400"
+                      onClick={toggleModal}
+                    >
+                      Ok!
+                    </button>
+                  </div>
                 </div>
               </div>
             </Modal>
